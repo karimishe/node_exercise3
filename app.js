@@ -4,6 +4,16 @@ const express = require('express');
 
 const app = express();
 
-const server = http.createServer(app)
+app.use((req, res, next) => {
+    console.log("in the middle 1");
+    next();
+});
 
-server.listen(3003);
+
+app.use((req, res, next) => {
+    console.log("in the middle 2");
+    res.send('<h1> Hello from express </h1>');
+});
+
+
+app.listen(3003)
