@@ -12,7 +12,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(admonRoutes);
+app.use('/admin', admonRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
